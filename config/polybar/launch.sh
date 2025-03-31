@@ -11,7 +11,7 @@ MONITOR_PRIMARY=$(echo "$MONITORS" | grep "primary" | cut -d":" -f1)
 MONITOR_EXTRA=$(echo "$MONITORS" | grep -v "primary" | cut -d":" -f1)
 
 # Start main polybar with tray
-MONITOR=$MONITOR_PRIMARY MOD_RIGHT="systray microphone pulseaudio memory cpu filesystem battery wlan eth date" polybar main &
+MONITOR=$MONITOR_PRIMARY MOD_RIGHT="systray xkeyboard microphone pulseaudio memory cpu filesystem battery wlan eth date" polybar main &
 for m in $MONITOR_EXTRA; do
-    MONITOR=$m MOD_RIGHT="microphone pulseaudio memory cpu filesystem battery wlan eth date" polybar main &
+    MONITOR=$m MOD_RIGHT=" xkeyboard microphone pulseaudio memory cpu filesystem battery wlan eth date" polybar main &
 done
