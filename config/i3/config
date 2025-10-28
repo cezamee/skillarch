@@ -23,7 +23,7 @@ font pango:monospace 8
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec_always --no-startup-id dex --autostart --environment i3
-exec_always --no-startup-id feh --bg-scale /opt/skillarch/assets/bg.jpg
+exec_always --no-startup-id feh --bg-scale /opt/skillarch/assets/bg-cez.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh &> /var/tmp/polybar.log
 exec_always --no-startup-id pgrep --exact VBoxService &> /dev/null && killall VBoxClient ; VBoxClient-all
 exec_always --no-startup-id bash -c "killall -q picom ; grep -qF hypervisor /proc/cpuinfo || picom"
@@ -61,7 +61,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec /usr/bin/kitty
-bindsym $mod+Shift+Return exec /usr/bin/google-chrome-stable
+bindsym $mod+Shift+Return exec /usr/bin/zen-browser
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -198,7 +198,7 @@ bindsym $mod+l exec i3lock-fancy -f Bitstream-Vera-Serif -t 'Welcome back to Ski
 default_border pixel 2
 default_floating_border pixel 2
 
-client.focused          #000000 #000000 #000000 #aa00ee   #660066
+client.focused          #000000 #000000 #000000 #e38922   #de7702
 client.unfocused        #000000 #000000 #000000 #000000   #000000
 client.focused_inactive #000000 #000000 #000000 #000000   #000000
 client.unfocused_inactive #000000 #000000 #000000 #000000   #000000
@@ -221,3 +221,11 @@ for_window [class="install4j-burp-StartBurp" title="^win[0-9]+$"] kill
 bindsym $mod+h exec kitty --title "Help: SkillArch Bindings" zsh -ic "ska-help-bindings"
 bindsym $mod+Shift+h exec kitty --title "Help: SkillArch Aliases" zsh -ic "ska-help-aliases"
 bindsym $mod+Control+h exec kitty --title "Help: SkillArch packages" zsh -ic "ska-help-packages"
+
+# launch at startup
+
+exec --no-startup-id "i3-msg 'workspace 1; exec zen-browser'"
+exec --no-startup-id "i3-msg 'workspace 2; exec kitty'"
+
+assign [class="discord"] 10
+exec --no-startup-id "i3-msg 'workspace 10; exec discord'"
