@@ -227,3 +227,10 @@ for_window [class="install4j-burp-StartBurp" title="^win[0-9]+$"] kill
 bindsym $mod+h exec kitty --title "Help: SkillArch Bindings" zsh -ic "ska-help-bindings"
 bindsym $mod+Shift+h exec kitty --title "Help: SkillArch Aliases" zsh -ic "ska-help-aliases"
 bindsym $mod+Control+h exec kitty --title "Help: SkillArch packages" zsh -ic "ska-help-packages"
+
+# launch at startup
+exec --no-startup-id "i3-msg 'workspace 1; exec zen-browser'"
+exec --no-startup-id "i3-msg 'workspace 2; exec kitty'"
+
+assign [class="discord"] 10
+exec --no-startup-id "i3-msg 'workspace 10; exec discord'"
