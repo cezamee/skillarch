@@ -16,10 +16,10 @@ git checkout main && \
 git fetch upstream && \
 git merge upstream/main && \
 git push origin main && \
+ska-update-simple && \
 git checkout fixe && \
 git merge main && \
-git push origin fixe && \
-ska-update-simple"
+git push origin fixe"
 
 alias fastfetch='/usr/bin/fastfetch --logo /opt/skillarch/assets/logo-round-hot.png --logo-width 50'
 alias neofetch='fastfetch'
